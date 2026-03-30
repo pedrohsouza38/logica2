@@ -195,7 +195,6 @@ Por fim, o programa deve calcular e apresentar o valor encontrado para a grandez
 Obs.: Qualquer opção diferente das apresentadas no menu deverão ser informadas ao usuário como 'Opção inválida!'
 Salvar o código como: grandezas.py
 
-
 PROGRAMA: Calculadora de Grandezas Elétricas (Lei de Ohm)
 OBJETIVO: Auxiliar eletricistas nos cálculos de Tensão, 
 Resistência e Corrente.
@@ -271,3 +270,16 @@ def calculadora():
 Executa a calculadora
 if __name__ == "__main__":
     calculadora()
+
+Justificativa das Estruturas de Decisão (if, elif, else)
+
+As estruturas de decisão (if, elif, else) foram essenciais neste programa para:
+
+Direcionamento de Fluxo (Menu): O programa precisa escolher um caminho de cálculo baseado no número digitado. O if verifica a primeira opção, e os elif (else if) verificam as subsequentes (2, 3) até a saída (4).
+
+Validação de Entrada: O bloco else final captura qualquer entrada que não seja 1, 2, 3 ou 4, garantindo que o programa apresente "Opção inválida!" conforme solicitado, em vez de fechar ou erro.
+
+Tratamento de Exceções Físicas (Divisão por Zero): Dentro das opções de Resistência e Corrente, usamos if i != 0 ou if r != 0. Isso é uma estrutura de decisão fundamental na engenharia, pois, matematicamente, dividir por zero causa um erro no programa. Ela garante a robustez do software, avisando ao eletricista que o valor inserido é fisicamente impossível ou inválido para o cálculo.
+
+O programa utiliza while True para criar um loop infinito, permitindo que o eletricista realize diversos cálculos em sequência, saindo apenas quando escolher a opção '4'.
+
