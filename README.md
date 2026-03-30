@@ -499,3 +499,50 @@ Por que usar else?
 Finalidade: O else garante que o bloco de código de sucesso só será executado se a condição do if for falsa. Ou seja, quando a string não estiver vazia, ele exibe o conteúdo digitado.
 
 Uso do .strip() (Importante): Essa função é usada para remover espaços em branco apenas no início e no fim da string. Isso garante que entradas como " " (apenas espaços) também sejam consideradas "Dada inválido", aumentando a robustez do programa.
+
+7. Desenvolva um programa que receba um inteiro e exiba o mesmo na tela. Se o valor digitado for em branco exibir 'Dado inválido'
+Salvar o código como: validar_int.py
+
+Programa para receber um inteiro e validar se o campo está em branco
+
+Entrada de dados: Recebe a entrada como string primeiro
+
+O .strip() remove espaços em branco extras antes e depois do texto
+
+entrada = input("Digite um número inteiro: ").strip()
+
+Estrutura de Decisão: Verifica se a string está vazia
+
+if entrada == "":
+
+    # Se for em branco, exibe a mensagem de erro
+    print("Dado inválido")
+    
+else:
+
+    # Se não for em branco, tenta converter e exibir
+    try:
+    
+        # Tenta converter a string para inteiro
+        numero = int(entrada)
+        print(f"O número digitado foi: {numero}")
+    except ValueError:
+    
+        # Caso o usuário digite texto (ex: "abc") em vez de um número
+        print("Dado inválido")
+
+Justificativa/Explicação das Estruturas de Decisão
+
+O programa utiliza estruturas de decisão (if/else) e de tratamento de erro (try/except) para garantir a integridade dos dados, conforme exigido.
+
+if entrada == "" (Estrutura Simples/Composta):
+O que faz: Verifica se o usuário pressionou "Enter" sem digitar nada (ou apenas espaços, devido ao uso do .strip()).
+Por que usar: É a forma mais direta de validar um campo em branco ("" representa uma string vazia). Se a condição for verdadeira, exibe "Dado inválido".
+
+else (Estrutura Composta):
+O que faz: Executa o bloco de código caso o if seja falso (ou seja, se o usuário digitou algo).
+Por que usar: Separa o fluxo de "erro (em branco)" do fluxo "sucesso (conteúdo presente)".
+
+try...except ValueError (Tratamento de Exceção):
+O que faz: Tenta converter a entrada com int(). Se a conversão falhar (ex: usuário digitou 'a'), o Python gera um erro ValueError, que é capturado pelo except.
+Por que usar: A estrutura de decisão (if) apenas verifica se está em branco. Se o usuário digitar "abc", o programa precisa tratar isso como "Dado inválido", e não tentar exibi-lo como número.
