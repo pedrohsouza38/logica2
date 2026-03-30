@@ -616,3 +616,76 @@ Estrutura Externa (if tipo == 'A' / elif tipo == 'G'): Esta é a primeira filtra
 Estrutura Interna (if litros <= 20): Dentro de cada tipo de combustível, existe uma nova verificação. Como o desconto muda conforme o volume, essa estrutura aninhada permite aplicar a taxa de 3% ou 5% (para álcool) e 4% ou 6% (para gasolina) de forma isolada e precisa.
 
 Cálculo Matemático: Em vez de subtrair o valor do desconto manualmente, utilizamos o fator de multiplicação.
+
+9. Desenvolver um programa que leia cinco números e os exiba na tela.
+Salvar o código como: cinco_num.py
+
+Programa: Leitura e Exibição de 5 Números
+
+def main():
+
+    # Inicializa uma lista vazia para armazenar os números
+    
+    numeros = []
+
+    print("--- Digite 5 números ---")
+
+    # ESTRUTURA DE REPETIÇÃO (Loop for)
+    
+    # Justificativa: Ideal para executar um bloco de código um número definido de vezes (5).
+    
+    # O range(5) gera um iterador de 0 a 4, totalizando 5 repetições.
+    
+    for i in range(5):
+    
+        # ESTRUTURA DE DECISÃO/TRATAMENTO (Try-Except)
+        
+        # Justificativa: Evita que o programa trave se o usuário digitar letras em vez de números.
+        
+        try:
+        
+            # Lê o número do usuário e converte para float (para aceitar decimais)
+            
+            valor = float(input(f"Digite o {i+1}º número: "))
+            numeros.append(valor) # Adiciona o número à lista
+        except ValueError:
+        
+            # Caso ocorra um erro de valor, exibe uma mensagem
+            
+            print("Entrada inválida! Por favor, digite um número.")
+            
+            # O 'continue' ignora o resto do loop e tenta novamente a mesma iteração
+            continue
+
+    # Exibe os números lidos
+    
+    print("\n--- Números Digitados ---")
+    
+    # Percorre a lista e exibe cada número
+    
+    for n in numeros:
+        print(n)
+
+Executa a função principal
+
+if __name__ == "__main__":
+    main()
+
+Justificativa das Estruturas
+
+Estrutura de Repetição (for + range(5))
+
+Por que usar? A tarefa solicita que o programa leia cinco números. Em vez de escrever o código de leitura (input()) cinco vezes consecutivas, a estrutura for automatiza esse processo.
+
+Vantagem: Aumenta a eficiência e a legibilidade do código, garantindo que o bloco interno seja repetido exatamente 5 vezes. 
+
+
+Estrutura de Decisão/Tratamento de Exceção (try...except) 
+
+Por que usar? Em uma leitura de dados, o usuário pode digitar, por erro, uma letra (ex: "a") em vez de um número, o que causaria um erro (ValueError) e interromperia o programa (crash).
+
+Como funciona? O try tenta executar a conversão float(input()). Se o usuário digitar algo que não é um número, o programa não fecha; em vez disso, ele pula para o except, exibe uma mensagem amigável e continua a execução. 
+
+Lista ([] e .append())
+
+Por que usar? Armazena os números inseridos sequencialmente para que possam ser manipulados ou exibidos no final do programa.
