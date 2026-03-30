@@ -574,7 +574,9 @@ preco_alcool = 2.89
 Estrutura de decisão para determinar o valor final
 
 if tipo == 'A':
+
     # Regras para Álcool
+    
     if litros <= 20:
         desconto = 0.03  # 3% de desconto
     else:
@@ -583,7 +585,9 @@ if tipo == 'A':
     valor_total = litros * preco_alcool * (1 - desconto)
 
 elif tipo == 'G':
+
     # Regras para Gasolina
+    
     if litros <= 20:
         desconto = 0.04  # 4% de desconto
     else:
@@ -592,7 +596,9 @@ elif tipo == 'G':
     valor_total = litros * preco_gasolina * (1 - desconto)
 
 else:
+
     # Caso o usuário digite um código inválido
+    
     valor_total = None
     print("Tipo de combustível inválido!")
 
