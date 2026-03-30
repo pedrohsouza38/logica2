@@ -1,6 +1,4 @@
 # Programa: Leitura e Exibição de 5 Números
-# Linguagem: Python
-# IDE: Visual Studio Code
 
 def main():
     # Inicializa uma lista vazia para armazenar os números
