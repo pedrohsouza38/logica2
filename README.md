@@ -775,3 +775,44 @@ Justificativa: O bloco try...except ValueError trata essa exceção. Se a conver
 Variável de Entrada (int(input())):
 
 Justificativa: O input() captura o dado do usuário e o int() garante que possamos realizar cálculos matemáticos com ele. Sem o int(), o Python trataria o número como texto, gerando erros.
+
+11. Desenvolver um programa que exiba números de 1 a 100.
+Salvar o código como: um_a_cem.py
+
+Programa: Exibir números de 1 a 100
+
+def exibir_numeros():
+    """
+    Função que usa uma estrutura de repetição for
+    para imprimir números de 1 até 100.
+    """
+    
+    # O range(1, 101) gera uma sequência de 1 até 100.
+    
+    # O segundo parâmetro é exclusivo (para antes dele), portanto, usamos 101 para incluir o 100.
+    
+    for numero in range(1, 101):
+    
+        # Exibe o número atual da iteração
+        
+        print(numero)
+
+Executa a função
+if __name__ == "__main__":
+    exibir_numeros()
+
+Justificativa/Explicação das Estruturas
+
+Estrutura de Repetição (for + range)
+
+O que é: O for é uma estrutura de repetição que, em Python, percorre sequências (como listas ou faixas de números).
+
+Justificativa: É a maneira mais eficiente para exibir números de 1 a 100, pois sabemos exatamente onde a contagem começa (1) e onde termina (100). O uso de range(1, 101) cria automaticamente uma sequência numérica sem a necessidade de criar manualmente um contador (i = i + 1) ou gerenciar o fim do loop, reduzindo chances de erros como loops infinitos.
+
+Por que não while? Embora o while funcionasse, ele exigiria criar uma variável, incrementar manualmente e colocar uma condição, tornando o código maior e mais propenso a falhas de "off-by-one" (um erro comum onde o loop para no 99 em vez de 100).
+
+Estrutura de Decisão (if __name__ == "__main__":)
+
+O que é: Uma estrutura de decisão if que verifica se o script Python está sendo executado como o arquivo principal.
+
+Justificativa: No VS Code, isso é boa prática para garantir que o código dentro da função exibir_numeros() só seja rodado se você apertar "Run", e não quando o script for importado como um módulo em outro arquivo.
