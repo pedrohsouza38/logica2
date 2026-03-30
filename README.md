@@ -326,3 +326,13 @@ Tratamento de Exceções Físicas (Divisão por Zero): Dentro das opções de Re
 
 O programa utiliza while True para criar um loop infinito, permitindo que o eletricista realize diversos cálculos em sequência, saindo apenas quando escolher a opção '4'.
 
+5. Suponha que o professor Atila possua dois logins na rede do SENAI-SP. 
+Construa um programa que valide o acesso do professor à rede. 
+Caso o par usuário/senha informado esteja correto, o programa deve imprimir a mensagem “Seja bem vindo!”.
+Caso contrário, “Usuário e senha não conferem”.
+Dados dos dois logins:
+login 1			login 2
+usuário: atila		usuário: olivi
+senha: 12345		senha: 54321
+Salvar o código como: dois_logins.py
+
