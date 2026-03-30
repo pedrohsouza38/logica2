@@ -14,25 +14,34 @@ Salvar o código como: multa.py
 Solução de Radar Eletrônico em Python
 
 Solicita a velocidade ao usuário e converte para número decimal (float)
+
 velocidade = float(input("Digite a velocidade do seu carro (Km/h): "))
 
 Define o limite de velocidade
+
 limite = 80
 
 Estrutura de Decisão: Verifica se a velocidade é maior que 80 km/h
+
 if velocidade > limite:
+
     Calcula a diferença entre a velocidade atual e o limite
+    
     km_excedido = velocidade - limite
     
     Calcula o valor da multa: R$ 50,00 por km acima do limite
+    
     valor_multa = km_excedido * 50.00
     
     Exibe a mensagem de multa e o valor formatado (2 casas decimais)
+    
     print(f"Você foi multado! A velocidade excedeu em {km_excedido:.1f} Km/h.")
     print(f"Valor da multa: R$ {valor_multa:.2f}")
 
 else:
+
     # Caso a velocidade seja 80 ou menos
+    
     print("Velocidade dentro do limite. Boa viagem!")
 
     Justificativa da Estrutura de Decisão
@@ -62,39 +71,48 @@ Salvar o código como: maior_menor.py
 Programa para ler 3 números, encontrar maior, menor, soma e média
 
 Leitura dos dados de entrada
+
 Usamos float() para permitir números decimais. input() recebe o texto.
+
 num1 = float(input("Digite o primeiro número: "))
 num2 = float(input("Digite o segundo número: "))
 num3 = float(input("Digite o terceiro número: "))
 
 Processamento: Maior e Menor número
+
 Inicialmente assumimos que o primeiro número é o maior e o menor.
+
 maior = num1
 menor = num1
 
 Estrutura de decisão para encontrar o MAIOR
+
 if num2 > maior:
     maior = num2
 if num3 > maior:
     maior = num3
 
 Estrutura de decisão para encontrar o MENOR
+
 if num2 < menor:
     menor = num2
 if num3 < menor:
     menor = num3
 
 Processamento: Soma e Média
+
 soma = num1 + num2 + num3
 media = soma / 3
 
 Saída de dados formatada
+
 print("-" * 20)
 print(f"Maior: {maior}")
 print(f"Menor: {menor}")
 print(f"Soma: {soma}")
 
 #:.2f formata a média para 2 casas decimais
+
 print(f"Média: {media:.2f}")
 print("-" * 20)
 
@@ -122,17 +140,25 @@ Calcule o preço da passagem, cobrando R$ 0,50 por km para viagens de até de 20
 Salvar o código como: viagens.py
 
 Solicita a distância ao usuário e converte para número de ponto flutuante (float)
+
 distancia = float(input("Digite a distância da viagem em km: "))
 
 Estrutura condicional para determinar a tarifa
+
 if distancia <= 200:
+
     # Se a distância for até 200km, o preço é 0.50 por km
+    
     preco = distancia * 0.50
+    
 else:
+
     # Para viagens acima de 200km, o preço é 0.45 por km
+    
     preco = distancia * 0.45
 
 Exibe o resultado formatado com duas casas decimais
+
 print(f"O preço da passagem é: R$ {preco:.2f}")
 
 Justificativa e Explicação das Estruturas
