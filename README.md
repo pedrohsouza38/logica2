@@ -72,7 +72,7 @@ Programa para ler 3 números, encontrar maior, menor, soma e média
 
 Leitura dos dados de entrada
 
-Usamos float() para permitir números decimais. input() recebe o texto.
+Usa float() para permitir números decimais. input() recebe o texto.
 
 num1 = float(input("Digite o primeiro número: "))
 num2 = float(input("Digite o segundo número: "))
@@ -245,8 +245,7 @@ def calculadora():
         opcao = input("Qual grandeza deseja calcular? (1-4): ")
 
         # --- ESTRUTURAS DE DECISÃO (if/elif/else) ---
-        # A estrutura de decisão é fundamental aqui para direcionar o fluxo
-        # do programa baseada estritamente na escolha do usuário.
+        # A estrutura de decisão é fundamental aqui para direcionar o fluxo do programa baseada estritamente na escolha do usuário.
 
         if opcao == '1':
         
