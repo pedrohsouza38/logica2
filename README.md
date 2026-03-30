@@ -546,3 +546,67 @@ Por que usar: Separa o fluxo de "erro (em branco)" do fluxo "sucesso (conteúdo 
 try...except ValueError (Tratamento de Exceção):
 O que faz: Tenta converter a entrada com int(). Se a conversão falhar (ex: usuário digitou 'a'), o Python gera um erro ValueError, que é capturado pelo except.
 Por que usar: A estrutura de decisão (if) apenas verifica se está em branco. Se o usuário digitar "abc", o programa precisa tratar isso como "Dado inválido", e não tentar exibi-lo como número.
+
+8. Um posto está vendendo combustíveis com a seguinte tabela de descontos: 
+   Álcool:
+      até 20 litros, desconto de 3% por litro
+      acima de 20 litros, desconto de 5% por litro 
+   Gasolina:
+      até 20 litros, desconto de 4% por litro
+      acima de 20 litros, desconto de 6% por litro 
+
+O programa deverá ler o número de litros vendidos, o tipo de combustível codificado da seguinte forma: 
+   A - Álcool, 
+   G - Gasolina, 
+Calcule e imprima o valor a ser pago pelo cliente sabendo-se que o preço do litro da gasolina é R$ 4,95 o preço do litro do álcool é R$ 2,89.
+Salvar o código como: desc_combustiveis.py
+
+Entrada de dados: Litros e Tipo de Combustível
+
+litros = float(input("Digite o número de litros vendidos: "))
+tipo = input("Digite o tipo de combustível (A-álcool, G-gasolina): ").upper()
+
+Definição de preços base
+
+preco_gasolina = 4.95
+preco_alcool = 2.89
+
+Estrutura de decisão para determinar o valor final
+
+if tipo == 'A':
+    # Regras para Álcool
+    if litros <= 20:
+        desconto = 0.03  # 3% de desconto
+    else:
+        desconto = 0.05  # 5% de desconto
+    
+    valor_total = litros * preco_alcool * (1 - desconto)
+
+elif tipo == 'G':
+    # Regras para Gasolina
+    if litros <= 20:
+        desconto = 0.04  # 4% de desconto
+    else:
+        desconto = 0.06  # 6% de desconto
+    
+    valor_total = litros * preco_gasolina * (1 - desconto)
+
+else:
+    # Caso o usuário digite um código inválido
+    valor_total = None
+    print("Tipo de combustível inválido!")
+
+Exibição do resultado
+
+if valor_total is not None:
+    print(f"Valor a ser pago: R$ {valor_total:.2f}")
+
+Justificativa e Explicação das Estruturas
+
+A solução utiliza estruturas de decisão aninhadas (if, elif, else) para segmentar a lógica de negócio por dois critérios principais:
+
+Estrutura Externa (if tipo == 'A' / elif tipo == 'G'): Esta é a primeira filtragem. Ela separa o fluxo do programa com base na natureza do produto. O uso do .upper() na entrada garante que o programa aceite tanto "a" quanto "A", tornando-o mais robusto contra erros do usuário.
+
+Estrutura Interna (if litros <= 20): Dentro de cada tipo de combustível, existe uma nova verificação. Como o desconto muda conforme o volume, essa estrutura aninhada permite aplicar a taxa de 3% ou 5% (para álcool) e 4% ou 6% (para gasolina) de forma isolada e precisa.
+
+Cálculo Matemático: Em vez de subtrair o valor do desconto manualmente, utilizamos o fator de multiplicação.
