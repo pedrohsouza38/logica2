@@ -507,7 +507,7 @@ Programa para receber um inteiro e validar se o campo está em branco
 
 Entrada de dados: Recebe a entrada como string primeiro
 
-O .strip() remove espaços em branco extras antes e depois do texto
+.strip() remove espaços em branco extras antes e depois do texto
 
 entrada = input("Digite um número inteiro: ").strip()
 
