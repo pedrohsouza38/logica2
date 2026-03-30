@@ -326,7 +326,7 @@ Tratamento de Exceções Físicas (Divisão por Zero): Dentro das opções de Re
 
 O programa utiliza while True para criar um loop infinito, permitindo que o eletricista realize diversos cálculos em sequência, saindo apenas quando escolher a opção '4'.
 
-5. Suponha que o professor Atila possua dois logins na rede do SENAI-SP. 
+4. Suponha que o professor Atila possua dois logins na rede do SENAI-SP. 
 Construa um programa que valide o acesso do professor à rede. 
 Caso o par usuário/senha informado esteja correto, o programa deve imprimir a mensagem “Seja bem vindo!”.
 Caso contrário, “Usuário e senha não conferem”.
@@ -381,3 +381,121 @@ Uso do if / else: Essencial para controle de fluxo. O programa precisa decidir e
 Operador lógico and: Utilizado dentro dos parênteses (usuario == ... and senha == ...) para garantir que ambos, usuário e senha, estejam corretos para aquele login específico.
 
 Operador lógico or: Utilizado para conectar as duas validações. Ele permite que o programa aceite o par 1 OU o par 2, flexibilizando o acesso para mais de uma credencial válida.
+
+5. Na última Black Friday, o gerente de uma loja de perfumes colocou todo o seu estoque em promoção, de acordo com a tabela a seguir:
+
+Código	Condição de Pagamento	Desconto (%)
+1 	À vista (em espécie) 	10
+2	Cartão de débito	5
+3	Cartão de crédito	3
+4	PIX			7.5
+
+Construa um programa que solicite ao operador do caixa o preço total da venda, bem como a forma de pagamento.
+Ao fim, o programa deve informar o valor final a ser pago.
+Salvar o código como: black_friday.py
+
+Programa para cálculo de desconto - Black Friday
+
+Solicita o preço total da venda
+
+preco_total = float(input("Digite o valor total da venda (R$): "))
+
+Exibe as opções de pagamento para o operador
+
+print("\nCÓDIGO | CONDIÇÃO DE PAGAMENTO | DESCONTO")
+print("1      | À vista (espécie)     | 10%")
+print("2      | Cartão de débito      | 5%")
+print("3      | Cartão de crédito     | 3%")
+print("4      | PIX                   | 7.5%")
+
+Solicita o código da forma de pagamento
+
+codigo = int(input("\nDigite o código da forma de pagamento: "))
+
+Estrutura de decisão para definir o percentual de desconto
+
+if codigo == 1:
+    desconto = 10.0
+elif codigo == 2:
+    desconto = 5.0
+elif codigo == 3:
+    desconto = 3.0
+elif codigo == 4:
+    desconto = 7.5
+else:
+    desconto = 0.0
+    print("Código inválido! Nenhum desconto será aplicado.")
+
+Cálculo do valor final
+
+A fórmula aplicada é: Valor * (1 - Porcentagem/100)
+
+valor_final = preco_total * (1 - desconto / 100)
+
+Exibe o resultado final formatado com duas casas decimais
+
+print(f"\nDesconto aplicado: {desconto}%")
+print(f"O valor final a ser pago é: R$ {valor_final:.2f}")
+
+Justificativa das Estruturas Utilizadas
+
+float() e int(): Essenciais para garantir que os dados vindos do teclado (que por padrão são textos/strings) possam ser usados em cálculos matemáticos.
+
+if: Utilizado para testar a primeira condição (Código 1).
+
+elif (else if): Utilizado para testar as condições subsequentes. O uso do elif é mais eficiente que vários if isolados, pois assim que o Python encontra uma condição verdadeira, ele ignora as demais, economizando processamento.
+
+else: Funciona como uma "saída de segurança" para tratar erros de digitação (caso o operador digite um código que não existe na tabela).
+
+F-strings (f"..."): Utilizadas na saída de dados para facilitar a inserção de variáveis dentro do texto e formatar o valor monetário com duas casas decimais (:.2f).
+
+6. Desenvolva um programa que receba uma string e exiba a mesma na tela. Se o valor digitado for em branco exibir 'Dado inválido'
+Salvar o código como: validar_str.py
+
+Programa para validação de string em branco
+
+def main():
+
+    # Entrada de dados
+    
+    # A função input() recebe o texto do usuário.
+    
+    # Usamos strip() para remover espaços em branco desnecessários no início/fim.
+    
+    entrada = input("Digite algo: ").strip()
+
+    # Estrutura de Decisão (if/else)
+    
+    # Justificativa: Necessária para verificar se a string está vazia após o strip().
+    
+    # if not entrada: verifica se a string é falsa (vazia "" ou apenas espaços)
+    
+    if not entrada:
+    
+        # Se for vazio, exibe a mensagem de erro
+        
+        print("Dado inválido")
+        
+    else:
+    
+        # Se contiver conteúdo, exibe o valor digitado
+        
+        print(f"Você digitou: {entrada}")
+
+Executa o programa
+
+if __name__ == "__main__":
+    main()
+
+Justificativa e Explicação das Estruturas de Decisão
+
+No código acima, a estrutura de decisão principal é o bloco if / else.
+
+Por que usar if not entrada?
+Finalidade: Em Python, uma string vazia "" é considerada "falsy" (falsa em um contexto booleano). A estrutura if not é a maneira mais concisa de verificar se a variável entrada está vazia após a remoção de espaços em branco (feita pelo .strip()).
+Comportamento: Se o usuário pressionar Enter sem digitar nada, ou digitar apenas espaços, entrada será "", fazendo com que if not "" seja True, resultando na exibição de "Dado inválido".
+
+Por que usar else?
+Finalidade: O else garante que o bloco de código de sucesso só será executado se a condição do if for falsa. Ou seja, quando a string não estiver vazia, ele exibe o conteúdo digitado.
+
+Uso do .strip() (Importante): Essa função é usada para remover espaços em branco apenas no início e no fim da string. Isso garante que entradas como " " (apenas espaços) também sejam consideradas "Dada inválido", aumentando a robustez do programa.
