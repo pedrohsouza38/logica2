@@ -689,3 +689,89 @@ Como funciona? O try tenta executar a conversão float(input()). Se o usuário d
 Lista ([] e .append())
 
 Por que usar? Armazena os números inseridos sequencialmente para que possam ser manipulados ou exibidos no final do programa.
+
+10. Desenvolver um programa que calcule e exiba a tabuada de hum a dez de um número qualquer.
+    
+    Exemplo:
+    
+    Informe o número da tabuada: 5
+   
+    1 x 5 = 5
+    2 x 5 = 10
+    3 x 5 = 15
+    4 x 5 = 20
+    5 x 5 = 25
+    6 x 5 = 30
+    7 x 5 = 35
+    8 x 5 = 40
+    9 x 5 = 45
+    10 x 5 = 50
+
+Salvar o código como: tabuada.py
+
+Programa de Tabuada Automatizado
+
+Desenvolvido para calcular tabuadas de 1 a 10 de qualquer número.
+
+def calcular_tabuada():
+
+    # Entrada de Dados: Solicita o número ao usuário
+    
+    try:
+    
+        # A função input() lê o valor como texto (string), int() converte para número inteiro
+        
+        numero = int(input("Informe o número da tabuada: "))
+        
+        print(f"\nTabuada de {numero}:")
+        
+        print("-" * 15) # Apenas para formatação estética
+
+        # Estrutura de Repetição (for):
+        
+        # range(1, 11) gera uma sequência de 1 até 10 (o último número é exclusivo)
+        
+        for i in range(1, 11):
+        
+            resultado = numero * i
+            
+            # Exibição formatada:
+            
+            # Uso de f-string para exibir o formato "x x n = res"
+            
+            print(f"{i} x {numero} = {resultado}")
+            
+        print("-" * 15)
+
+    except ValueError:
+    
+        # Estrutura de decisão simples para garantir que o programa não quebre
+        
+        # caso o usuário digite letras em vez de números.
+        
+        print("Erro: Por favor, informe um número inteiro válido.")
+
+Executa a função
+
+if __name__ == "__main__":
+    calcular_tabuada()
+
+Justificativa das Estruturas de Decisão e Repetição
+
+Para criar este programa de forma eficiente no VS Code, utiliza as seguintes estruturas:
+
+Estrutura de Repetição (for i in range(1, 11):):
+
+Por que usar? Em vez de escrever print dez vezes manualmente, a estrutura for realiza a repetição automaticamente.
+
+Justificativa: O range(1, 11) gera automaticamente os números de 1 a 10. A variável i assume cada um desses valores por vez, multiplicando o número digitado pelo contador (i) e exibindo o resultado. Isso torna o código legível, compacto e escalável (se quisesse até 20, seria apenas alterar o range).
+
+Estrutura de Decisão (try / except / if):
+
+Por que usar? O usuário pode, acidentalmente ou não, digitar um texto (como "cinco") em vez do número 5.
+
+Justificativa: O bloco try...except ValueError trata essa exceção. Se a conversão int(input()) falhar, a estrutura de decisão impede o fechamento abrupto do programa e exibe uma mensagem amigável.
+
+Variável de Entrada (int(input())):
+
+Justificativa: O input() captura o dado do usuário e o int() garante que possamos realizar cálculos matemáticos com ele. Sem o int(), o Python trataria o número como texto, gerando erros.
