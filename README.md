@@ -816,3 +816,86 @@ Estrutura de Decisão (if __name__ == "__main__":)
 O que é: Uma estrutura de decisão if que verifica se o script Python está sendo executado como o arquivo principal.
 
 Justificativa: No VS Code, isso é boa prática para garantir que o código dentro da função exibir_numeros() só seja rodado se apertar "Run", e não quando o script for importado como um módulo em outro arquivo.
+
+12. Desenvolva um programa para escrever a contagem regressiva do lançamento de um foguete. 
+O programa deve imprimir 10, 9, 8, …, 1, 0 e 'Ignição!' na tela.
+Salvar o código como: lancamento.py
+
+import time  # Importa o módulo time para usar a função sleep (pausa)
+
+def contagem_regressiva():
+    """
+    Simula uma contagem regressiva de 10 a 0 e lança o foguete.
+    """
+    print("Iniciando contagem regressiva...")
+    
+    # Estrutura de repetição 'for' com range decrescente
+    # range(início, fim, passo) -> vai de 10 até 0 (o fim é exclusivo)
+    for i in range(10, -1, -1):
+        print(i)
+        time.sleep(1)  # Pausa a execução por 1 segundo
+    
+    # Estrutura de decisão para verificar se a contagem terminou
+    # Em um cenário real, aqui verificaríamos se o número é 0
+    motor_ligado = True
+    if motor_ligado:
+        print("Ignição!")
+
+Chama a função principal
+if __name__ == "__main__":
+    contagem_regressiva()
+
+Justificativa das Estruturas de Decisão e Repetição
+
+Estrutura de Repetição (for i in range(10, -1, -1):):
+
+Uso: Foi utilizada para automatizar a impressão dos números de 10 a 0.
+
+Por que não usar um comando print para cada número? Seria ineficiente e repetitivo (código mal escrito). O loop for com range(10, -1, -1) é ideal pois define o início (10), o final (até -1, ou seja, inclui o 0) e o passo (-1, para decrementar) de forma clara e limpa.
+
+Estrutura de Decisão (if motor_ligado:):
+
+Uso: Verifica uma condição lógica antes de realizar uma ação final ("Ignição!").
+
+Por que usar? Embora o loop termine no 0, a estrutura if é essencial para garantir a lógica de controle. Se o foguete falhar (ex: motor_ligado = False), o programa não imprimiria "Ignição!". Ela separa a fase de contagem da fase de execução do lançamento.
+
+time.sleep(1):
+
+Uso: Pausa o script por 1 segundo após cada número, simulando o tempo real. 
+
+13. Desenvolva um programa que exiba somente os números pares de um a cem.
+Salvar o código como: somente_pares.py
+
+Programa para exibir números pares de 1 a 100
+
+Utiliza uma estrutura de repetição e uma de decisão
+
+print("Números pares de 1 a 100:")
+
+'for' itera sobre a sequência de números de 1 até 100
+O 'range(1, 101)' gera números começando em 1 até 100 (o 101 não é incluído)
+for numero in range(1, 101):
+    
+    # Estrutura de Decisão (if):
+    # Verifica se o resto da divisão do número por 2 é igual a zero (par)
+    if numero % 2 == 0:
+        # Se a condição for verdadeira, o número é par e exibido
+        print(numero)
+
+Alternativa mais eficiente (sem if):
+for numero in range(2, 101, 2):
+print(numero)
+
+Justificativa/Explicação
+
+Estrutura de Repetição (for):
+
+Uso: Foi necessário para percorrer todos os números no intervalo de 1 a 100.
+
+Explicação: O range(1, 101) cria uma sequência de 1 a 100. A estrutura de repetição garante que cada número seja verificado individualmente.
+
+Estrutura de Decisão (if):
+
+Uso: Essencial para filtrar e exibir somente os números que atendem ao critério de serem pares.
+
+Explicação: O operador % (módulo) retorna o resto da divisão. Se numero % 2 == 0, significa que o número é divisível por 2 sem deixar resto, o que define um número par. Se a condição for falsa, o programa ignora o print daquele número.
